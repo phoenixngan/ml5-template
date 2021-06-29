@@ -63,6 +63,7 @@ function draw() {
   let crownHeight = (crownImage.height / crownImage.width)*crownWidth;
 
   imageMode(CENTER);
+  image(video, 0, 0, width, height);
   image(
     crownImage,
     foreheadLocation[0 /* x */],
