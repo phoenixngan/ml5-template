@@ -100,6 +100,10 @@ class Car {
   move() {
     this.x -= 40;
     this.y -= 1;
+    if(this.x < 0){
+      this.x = width;
+      this.y = 100;
+    }
   }
   display() {
     image(mcQueenImage, this.x, this.y, this.diameterX, this.diameterY);
