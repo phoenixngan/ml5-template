@@ -13,7 +13,6 @@ function preload() {
 
 function setup() {
   createCanvas(960, 720);
-  background("yellow");
   video = createCapture(VIDEO);
   video.size(width, height);
 
