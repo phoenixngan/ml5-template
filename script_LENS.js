@@ -1,5 +1,5 @@
 let mcQueen;
-let latestPrediction = null;
+// let latestPrediction = null;
 let poseNet;
 let poses = [];
 let keypoints = [];
@@ -15,19 +15,19 @@ function setup() {
   video = createCapture(VIDEO);
   video.size(width, height);
 
-  // ml5 function
-  let facemesh = ml5.facemesh(video, () => {
-    console.log("Model is ready!");
-    modelIsLoading = false;
-  });
-  // ml5 function
-  facemesh.on("predict", (results) => {
-    // results is an Array
-    // we care about the first object only
-    // results[0]
-    // console.log(results[0]);
-    latestPrediction = results[0];
-  });
+  // // ml5 function
+  // let facemesh = ml5.facemesh(video, () => {
+  //   console.log("Model is ready!");
+  //   modelIsLoading = false;
+  // });
+  // // ml5 function
+  // facemesh.on("predict", (results) => {
+  //   // results is an Array
+  //   // we care about the first object only
+  //   // results[0]
+  //   // console.log(results[0]);
+  //   latestPrediction = results[0];
+  // });
 
   // Create a new poseNet method with a single detection
   poseNet = ml5.poseNet(video, { flipHorizontal: true });
@@ -98,7 +98,7 @@ class Car {
   }
   move() {
     this.x -= 100;
-    this.y -= 1;
+    this.y -= 10;
     if(this.x < 0){
       this.x = width;
       this.y = 100;
@@ -129,7 +129,7 @@ function sound(src) {
 function draw() {
   let flippedVideo = ml5.flipImage(video);
   image(flippedVideo, 0, 0, width, height);
-  if (latestPrediction == null) return;
+  // if (latestPrediction == null) return;
 
   updateKeypoints();
   drawKeypoints();
