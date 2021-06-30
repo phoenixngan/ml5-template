@@ -106,8 +106,19 @@ function draw() {
   let flippedVideo = ml5.flipImage(video);
   image(flippedVideo, 0, 0, width, height);
   if (latestPrediction == null) return;
+
   updateKeypoints();
   drawKeypoints();
-  mcQueen.move();
-  mcQueen.display();
+
+  let leftWristPosition = interpolatedKeypoints[9];
+  let rightWristPosition = interpolatedKeypoints[10];
+
+  if((leftWristPosition.y < height/2) && (rightWristPosition.y < height/2)){
+    mcQueen.move();
+    mcQueen.display();
+  }
+  else{
+    tint(255);
+  }
+
 }
