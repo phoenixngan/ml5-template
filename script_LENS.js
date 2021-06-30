@@ -6,7 +6,6 @@ let keypoints = [];
 let interpolatedKeypoints = [];
 var mySound;
 
-
 function preload() {
   mcQueenImage = loadImage("/assets/kachow.png");
 }
@@ -98,7 +97,7 @@ class Car {
     this.speed = 1;
   }
   move() {
-    this.x -= 40;
+    this.x -= 100;
     this.y -= 1;
     if(this.x < 0){
       this.x = width;
@@ -144,6 +143,7 @@ function draw() {
     mySound.play();
   }
   else{
+    mySound.stop();
     tint(255);
   }
 
