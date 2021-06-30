@@ -12,7 +12,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(640, 480);
+  createCanvas(960, 720);
   video = createCapture(VIDEO);
   video.size(width, height);
 
@@ -91,14 +91,14 @@ function createInitialKeypoints() {
 // Move class
 class Car {
   constructor() {
-    this.x = 450;
+    this.x = width;
     this.y = 100;
     this.diameterX = 300;
     this.diameterY = 200;
     this.speed = 1;
   }
   move() {
-    this.x -= 5;
+    this.x -= 40;
     this.y -= 1;
   }
   display() {
