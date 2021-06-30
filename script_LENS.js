@@ -45,7 +45,8 @@ class Car {
 }
 
 function draw() {
-  image(video, 0, 0, width, height);
+  let flippedVideo = ml5.flipImage(video);
+  image(flippedVideo, 0, 0, width, height);
   if (latestPrediction == null) return;
   mcQueen.move();
   mcQueen.display();
