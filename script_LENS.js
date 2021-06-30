@@ -4,6 +4,8 @@ let poseNet;
 let poses = [];
 let keypoints = [];
 let interpolatedKeypoints = [];
+var mySound;
+
 
 function preload() {
   mcQueenImage = loadImage("/assets/kachow.png");
@@ -40,6 +42,8 @@ function setup() {
   createInitialKeypoints();
   // creates car object
   mcQueen = new Car();
+  // creates sound
+  mySound = new sound("/assets/kachow.mp3");
 }
 
 function updateKeypoints() {
@@ -102,6 +106,23 @@ class Car {
   }
 }
 
+//sound function
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
+  this.play = function(){
+    this.sound.play();
+    this.sound.volume = .2;
+  }
+  this.stop = function(){
+    this.sound.pause();
+  }
+}
+
 function draw() {
   let flippedVideo = ml5.flipImage(video);
   image(flippedVideo, 0, 0, width, height);
@@ -116,6 +137,7 @@ function draw() {
   if((leftWristPosition.y < height/2) && (rightWristPosition.y < height/2)){
     mcQueen.move();
     mcQueen.display();
+    mySound.play();
   }
   else{
     tint(255);
