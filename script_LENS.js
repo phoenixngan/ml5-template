@@ -132,7 +132,7 @@ function draw() {
   // if (latestPrediction == null) return;
 
   updateKeypoints();
-  drawKeypoints();
+  //drawKeypoints();
 
   let leftWristPosition = interpolatedKeypoints[9];
   let rightWristPosition = interpolatedKeypoints[10];
